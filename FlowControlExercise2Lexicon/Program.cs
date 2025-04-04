@@ -32,7 +32,36 @@
                 Console.WriteLine("0. Avsluta programmet\n");
 
                 Console.Write("Ditt val: ");
-                Console.ReadLine();
+                // Kommenterar ut Console.ReadLine(); då den bara var för att testa och se huvudmenyn hur den blev
+
+                string inputChoice = Console.ReadLine()!.ToUpper();
+
+                switch (inputChoice)
+                {
+                    case "0":
+                        //Avslutar programmet genom att ändra isRunning till false
+                        Console.WriteLine("Avslutar programmet...");
+                        isRunning = false;
+                        break;
+
+                    case "1":
+                        break;
+
+                    case "2":
+                        break;
+
+                    case "3":
+
+                        break;
+
+                    case "4":
+                        break;
+
+                    default:
+                        //Om användaren skriver något annat än 1-4 eller 0 så skrivs ett felmeddelande ut
+                        Console.WriteLine("Felaktigt val, försök igen.\n");
+                        break;
+                }
             }
             while (isRunning);
         }
