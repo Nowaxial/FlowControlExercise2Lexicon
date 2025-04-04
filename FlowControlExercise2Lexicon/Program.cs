@@ -4,7 +4,37 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //TODO: 1. Lägga till en switch-sats som körs beroende på vad användaren väljer.
+            //TODO: 2. Lägga till en metod för varje alternativ i menyn.
+            //TODO: 3. Lägga till en metod för att avsluta programmet.
+            //TODO: 4. Lägga till en metod för att skriva ut en text 10 gånger.
+            //TODO: 5. Lägga till en metod för att hämta det tredje ordet i en mening.
+            //TODO: 6. Lägga till en metod för att beräkna biljettpriser beroende på ålder.
+            //TODO: 7. Lägga till en metod för att beräkna biljettpriser beroende på sällskapets storlek och ålder
+
+            bool isRunning = true;
+
+            do
+            {
+                //Här är huvudmenyn med de alternativ som ska kunna väljas senare
+                //Den körs i en oändlig loop tills användaren stänger ner programmet, loopen avslutas genom att sätta isRunning till false.
+                //Avslutar med en Console.ReadLine() för att vänta på användarens input och då det är en oändlig loop så kommer den att köra om menyn igen.
+                Console.WriteLine("============================================================");
+                Console.WriteLine("|                VÄLKOMMEN TILL HUVUDMENYN!                |");
+                Console.WriteLine("============================================================");
+                Console.WriteLine("Välj ett alternativ genom att skriva en siffa och tryck ");
+                Console.WriteLine("sedan på Enter:\n");
+
+                Console.WriteLine("1. Ålderspriser – Kontrollera biljettpris för en person");
+                Console.WriteLine("2. Sällskapspris – Beräkna pris för en hel grupp");
+                Console.WriteLine("3. Upprepa text – Skriv ut en text 10 gånger");
+                Console.WriteLine("4. Tredje ordet – Hämta det tredje ordet i en mening");
+                Console.WriteLine("0. Avsluta programmet\n");
+
+                Console.Write("Ditt val: ");
+                Console.ReadLine();
+            }
+            while (isRunning);
         }
     }
 }
