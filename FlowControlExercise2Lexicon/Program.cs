@@ -11,6 +11,7 @@
             //TODO: 5. Lägga till en metod för att hämta det tredje ordet i en mening.
             //DONE: 6. Lägga till en metod för att beräkna biljettpriser beroende på ålder.
             //TODO: 7. Lägga till en metod för att beräkna biljettpriser beroende på sällskapets storlek och ålder
+            //TODO: 8. Extra: Lägga till validering av input i metoderna för att säkerställa att användaren anger giltiga värden.
 
             bool isRunning = true;
 
@@ -55,6 +56,7 @@
                         break;
 
                     case "2":
+                        GroupSize(); //Anropar metoden GroupSize()
                         break;
 
                     case "3":
@@ -92,6 +94,55 @@
                 {
                     Console.WriteLine("Standardpris: 120kr");
                 }
+            }
+            //Metoden GroupSize() som räknar ut biljettpriser beroende på sällskapets storlek och ålder, lagt till validering av input
+            static void GroupSize()
+            {
+                Console.Write("Antal personer i sällskapet: ");
+                string inputGroupSize = Console.ReadLine()!;
+                int groupSize;
+                int totalPriceGroup = 0;
+
+                //Kontrollerar om input är ett heltal
+                if (!int.TryParse(inputGroupSize, out groupSize))
+                {
+                    Console.WriteLine("Ogiltigt format. Ange endast siffror");
+                    GroupSize();//Anropar metoden igen för att låta användaren ange ett nytt värde
+                    return;
+                }
+
+                if (groupSize < 1)
+                {
+                    Console.WriteLine("Antalet personer måste vara minst 1.");
+                    return;
+                }
+
+                for (int i = 0; i < groupSize; i++)
+                {
+                    int userAge;
+                    Console.Write("Ange ålder för person " + (i + 1) + ": ");//L
+                    string inputUserAge = Console.ReadLine()!;
+                    //Kontrollerar om input är ett heltal
+                    if (!int.TryParse(inputUserAge, out userAge))
+                    {
+                        Console.WriteLine("Ogiltigt format. Ange endast siffror");
+                        i--;//Minskar i med 1 för att låta användaren ange åldern igen
+                        continue;
+                    }
+                    if (userAge <= 19)
+                    {
+                        totalPriceGroup += 80;
+                    }
+                    else if (userAge >= 65)
+                    {
+                        totalPriceGroup += 90;
+                    }
+                    else
+                    {
+                        totalPriceGroup += 120;
+                    }
+                }
+                Console.WriteLine($"Antal personer : {groupSize}st. | Totalt pris för sällskapet: {totalPriceGroup}kr. \n");
             }
         }
     }
